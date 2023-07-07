@@ -1,0 +1,37 @@
+<form id="write-form" action="POST">
+  <div class="write-form__title">내 물건 팔기</div>
+  <div class="write-form__elem">
+    <label>파일 업로드하기</label>
+    <label for="image">
+      <div class="btn-upload">파일 업로드하기</div>
+    </label>
+    <input type="file" id="image" name="image" />
+  </div>
+  <div class="write-form__elem">
+    <label for="title">제목</label>
+    <input type="text" id="title" name="title" placeholder="제목" />
+  </div>
+  <div class="write-form__elem">
+    <label for="price">가격</label>
+    <input
+      type="number"
+      id="price"
+      name="price"
+      placeholder="₩ 가격을 입력해 주세요."
+    />
+  </div>
+  <div class="write-form__elem">
+    <label for="description">설명</label>
+    <textarea
+      type="text"
+      id="description"
+      name="description"
+      placeholder="올릴 게시글 내용을 작성해주세요.&#13;&#10;(판매 금지 물품은 게시가 제한될 수 있어요.)"
+    />
+  </div>
+  <div class="write-form__elem">
+    <label for="place">거래 희망 장소</label>
+    <input type="text" id="place" name="place" />
+  </div>
+  <button type="submit">저장</button>
+</form>
