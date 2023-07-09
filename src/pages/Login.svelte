@@ -5,6 +5,10 @@
   const auth = getAuth();
   const provider = new GoogleAuthProvider();
 
+  const moveToHome = () => {
+    window.location.hash = "/";
+  };
+
   const loginWithGoogle = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
@@ -13,14 +17,15 @@
       const user = result.user;
       user$.set(user);
       localStorage.setItem("token", token);
+      moveToHome();
     } catch (error) {
       console.log(error);
     }
   };
 </script>
 
-<div>
-  <h3>로그인하기</h3>
+<div class="wrapper">
+  <span class="title">Log In</span>
   <div>
     <button class="login-btn" on:click={loginWithGoogle}>
       <img
@@ -34,6 +39,24 @@
 </div>
 
 <style>
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100vw;
+    height: 100vh;
+    justify-content: start;
+    align-items: center;
+    gap: 10%;
+    margin-top: 20%;
+  }
+
+  .title {
+    font-size: 20px;
+    font-weight: 600;
+    color: rgba(254, 111, 15, 0.8);
+    text-shadow: 2px 2px 2px rgba(254, 111, 15, 0.2);
+  }
+
   .login-btn {
     width: 180px;
     display: flex;
