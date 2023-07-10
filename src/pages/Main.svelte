@@ -3,8 +3,8 @@
   import Footer from "../components/Footer.svelte";
   import { getDatabase, ref, onValue } from "firebase/database";
 
-  let hour = new Date().getHours();
-  let minute = new Date().getMinutes();
+  let hour = new Date().getHours().toString().padStart(2, "0");
+  let minute = new Date().getMinutes().toString().padStart(2, "0");
 
   $: items = [];
 

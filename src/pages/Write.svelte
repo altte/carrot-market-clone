@@ -49,7 +49,7 @@
   <div class="write-form__title">내 물건 팔기</div>
   <div class="write-form__elem">
     <label>파일 업로드하기</label>
-    <label for="image">
+    <label for="image" class="label-upload">
       <div class="btn-upload">파일 업로드하기</div>
     </label>
     <input type="file" id="image" name="image" bind:files />
