@@ -5,9 +5,8 @@
   const logout = () => {
     user$.set(null);
     localStorage.removeItem("token");
+    localStorage.removeItem("providerId");
   };
-
-  console.log($user$);
 </script>
 
 <div class="wrapper">
