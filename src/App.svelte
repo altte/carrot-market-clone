@@ -13,6 +13,7 @@
   import {
     getAuth,
     GoogleAuthProvider,
+    GithubAuthProvider,
     signInWithCredential,
   } from "firebase/auth";
 
@@ -22,8 +23,16 @@
   const checkLogin = async () => {
     try {
       const token = localStorage.getItem("token");
+      const providerId = localStorage.getItem("providerId");
+
       if (!token) return (isLoading = false);
-      const credential = GoogleAuthProvider.credential(null, token);
+
+      let credential;
+      if (providerId === "firebase") {
+        credential = GoogleAuthProvider.credential(null, token);
+      } else if (providerId === "github.com") {
+        credential = GithubAuthProvider.credential(token);
+      }
       const result = await signInWithCredential(auth, credential);
       const user = result.user;
       user$.set(user);

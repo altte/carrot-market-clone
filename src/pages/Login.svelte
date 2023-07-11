@@ -20,9 +20,11 @@
       const result = await signInWithPopup(auth, googleProvider);
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
+      const providerId = "firebase";
       const user = result.user;
       user$.set(user);
       localStorage.setItem("token", token);
+      localStorage.setItem("providerId", providerId);
       moveToHome();
     } catch (error) {
       console.log(error);
@@ -31,13 +33,15 @@
 
   const loginWithGithub = async () => {
     try {
-      console.log(githubProvider);
       const result = await signInWithPopup(auth, githubProvider);
+      console.log(result);
       const credential = GithubAuthProvider.credentialFromResult(result);
       const token = credential.accessToken;
+      const providerId = "github.com";
       const user = result.user;
       user$.set(user);
       localStorage.setItem("token", token);
+      localStorage.setItem("providerId", providerId);
       moveToHome();
     } catch (error) {
       console.log(error);
